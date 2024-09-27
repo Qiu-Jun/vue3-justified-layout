@@ -1,10 +1,11 @@
 {
-  "name": "vue-project",
+  "name": "vue3-justified-layout",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "preinstall": "npx only-allow pnpm",
+    "dev": "pnpm run -C lib dev",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
