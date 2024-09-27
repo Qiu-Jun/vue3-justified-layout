@@ -10,7 +10,6 @@
     "style",
     "ci",
     "perf",
-    "release",
     "revert",
     "build"
   ],
@@ -59,13 +58,8 @@
     },
     "refactor": {
       "description": "Code Refactoring | 代码重构",
-      "emoji": "♻️ ",
-      "value": "refactor"
-    },
-    "release": {
-      "description": "Create a release commit | 发版提交",
       "emoji": "🏹",
-      "value": "release"
+      "value": "refactor"
     },
     "style": {
       "description": "Styles | 风格",

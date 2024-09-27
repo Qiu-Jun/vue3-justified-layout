@@ -3,10 +3,10 @@
  * @Description: 
  * @Date: 2024-09-27 22:23:34
  * @LastEditors: June
- * @LastEditTime: 2024-09-27 23:08:32
+ * @LastEditTime: 2024-09-28 00:01:59
 -->
 <template>
-  <div class="qj-container relative wh-full max-w-100%" ref="layoutRef" :style="styles">
+  <div class="qj-container relative wh-full max-w-100% transition-all transition-ease" ref="layoutRef" :style="styles">
     <div class="qj-item max-w-100%" v-for="(box, index) in layout" :key="index" :style="box.style">
       <slot :item="box.item" :style="box.style" :index="index"></slot>
     </div>
@@ -15,6 +15,22 @@
 
 <script lang="ts" setup>
 import justifiedLayout from 'justified-layout'
+
+interface IBoxItem {
+  aspectRatio: number
+  height: number
+  left: number
+  top: number
+  width: number
+}
+
+interface IListItem {
+  width: number
+  height: number
+  url: string
+  [key: string]: any
+}
+
 defineOptions({
   name: 'Vue3JustifiedLayout'
 })
@@ -24,7 +40,7 @@ const props = defineProps({
     default: () => {}
   }
 })
-const list = defineModel('list', {
+const list = defineModel<IListItem[]>('list', {
   type: Array,
   default: []
 })
@@ -38,8 +54,8 @@ const geometry = computed(() => {
 })
 const layout = computed(() => {
   if (!unref(geometry)) return
-  return geometry.value?.boxes.map((b, i) => ({
-    item: isNaN(list.value[i]) ? list.value[i] : {},
+  return geometry.value?.boxes.map((b: IBoxItem, i: number) => ({
+    item: list.value[i] ? list.value[i] : {},
     style: {
       height: `${b.height}px`,
       width: `${b.width}px`,
@@ -48,8 +64,8 @@ const layout = computed(() => {
       position: 'absolute'
     }
   }))
-})
-const styles = computed(() => {
+}) as any
+const styles = computed<any>(() => {
   if (!unref(geometry)) return {}
   return {
     position: 'relative',

@@ -13,5 +13,8 @@
   },
   "dependencies": {
     "justified-layout": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/justified-layout": "^4.1.4"
   }
 }
