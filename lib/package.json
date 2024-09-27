@@ -12,7 +12,6 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-  },
-  "devDependencies": {
+    "justified-layout": "^4.1.0"
   }
 }
