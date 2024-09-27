@@ -1,6 +1,6 @@
 {
   "name": "vue3-justified-layout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "vue3-justified-layout",
   "author": "June",
@@ -20,7 +20,8 @@
     "justified-layout"
   ],
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "main": "./dist/Vue3JustifiedLayout.umd.js",
   "module": "./dist/Vue3JustifiedLayout.es.js",
