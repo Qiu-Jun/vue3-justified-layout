@@ -1,45 +1,67 @@
-# vue-project
+## vue3-justified-layout
 
-This template should help get you started developing with Vue 3 in Vite.
+<img style="width: 240px;" src="./preview.jpg" />
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+#### Usage
+```bash
+pnpm add vue3-justified-layout 
+# or 
+# yarn install vue3-justified-layout  
+# npm install vue3-justified-layout
 ```
 
-### Compile and Hot-Reload for Development
+```html
+<template>
+  <div style="width: 400px;border: 1px solid #ccc;min-height: 300px;">
+    <Vue3JustifiedLayout v-model:list="list" :options="options">
+      <template #default="{ item }">
+        <img style="border: 1px solid #ccc" :src="item.url"  />
+      </template>
+    </Vue3JustifiedLayout>
+  </div>
 
-```sh
-npm run dev
-```
+  <button @click="handleAdd">添加</button>
+</template>
+<script lang="ts" setup>
+import { ref } from 'vue'
+import Vue3JustifiedLayout from 'vue3-justified-layout'
+import 'vue3-justified-layout/dist/style.css'
+import img1 from '@/assets/1.jpeg'
+import img2 from '@/assets/2.jpeg'
+import img3 from '@/assets/3.jpeg'
+import img4 from '@/assets/4.jpeg'
 
-### Type-Check, Compile and Minify for Production
+const options = {
+  targetRowHeight: 120 // 高度
+}
 
-```sh
-npm run build
-```
+const test = [
+  {
+    url: img1,
+    width: 800,
+    height: 572
+  },
+  {
+    url: img2,
+    width: 6000,
+    height: 4000
+  },
+  {
+    url: img3,
+    width: 800,
+    height: 533
+  },
+  {
+    url: img4,
+    width: 1000,
+    height: 1418
+  }
+]
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+const list = ref([...test])
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+const handleAdd = () => {
+  list.value.push(test[Math.floor(Math.random() * 4)])
+}
+</script>
 ```
