@@ -16,9 +16,17 @@
     "vue",
     "vue.js",
     "vue3",
-     "vue3-justified-layout",
+    "vue3-justified-layout",
     "justified-layout"
   ],
+  "homepage": "https://github.com/Qiu-Jun/vue3-justified-layout#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Qiu-Jun/vue3-justified-layout"
+  },
+  "bugs": {
+    "url": "https://github.com/Qiu-Jun/vue3-justified-layout/issues"
+  },
   "files": [
     "dist",
     "index.d.ts"
