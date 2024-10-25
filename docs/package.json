@@ -1,0 +1,16 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "vue3-justified-layout",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "author": "June",
+  "license": "MIT",
+  "dependencies": {
+    "vitepress": "^1.4.1"
+  }
+}
