@@ -1,6 +1,6 @@
 /*
  * @Author: June
- * @Description: 
+ * @Description:
  * @Date: 2024-09-27 23:01:05
  * @LastEditors: June
  * @LastEditTime: 2024-09-27 23:01:34
@@ -11,8 +11,5 @@ import transformerCompileClass from '@unocss/transformer-compile-class' // å°†ä¸
 export default defineConfig({
   transformers: [transformerCompileClass()],
   presets: [presetUno(), presetAttributify()],
-  shortcuts: [
-    { 'wh-full': 'w-full h-full' },
-    { 'f-center': 'flex justify-center items-center' }
-  ]
+  shortcuts: [{ 'wh-full': 'w-full h-full' }, { 'f-center': 'flex justify-center items-center' }]
 })

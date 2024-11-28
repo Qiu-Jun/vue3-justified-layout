@@ -3,11 +3,15 @@
  * @Description: 
  * @Date: 2024-09-27 22:23:34
  * @LastEditors: June
- * @LastEditTime: 2024-09-28 00:01:59
+ * @LastEditTime: 2024-11-28 09:38:40
 -->
 <template>
-  <div class="qj-container relative wh-full max-w-100% transition-all transition-ease" ref="layoutRef" :style="styles">
-    <div class="qj-item max-w-100%" v-for="(box, index) in layout" :key="index" :style="box.style">
+  <div
+    class="jl-container relative wh-full max-w-100% transition-all transition-ease"
+    ref="layoutRef"
+    :style="styles"
+  >
+    <div class="jl-item max-w-100%" v-for="(box, index) in layout" :key="index" :style="box.style">
       <slot :item="box.item" :style="box.style" :index="index"></slot>
     </div>
   </div>
@@ -15,21 +19,7 @@
 
 <script lang="ts" setup>
 import justifiedLayout from 'justified-layout'
-
-interface IBoxItem {
-  aspectRatio: number
-  height: number
-  left: number
-  top: number
-  width: number
-}
-
-interface IListItem {
-  width: number
-  height: number
-  url: string
-  [key: string]: any
-}
+import type { IBoxItem, IJLItem } from 'vue3-justified-layout'
 
 defineOptions({
   name: 'Vue3JustifiedLayout'
@@ -40,7 +30,7 @@ const props = defineProps({
     default: () => {}
   }
 })
-const list = defineModel<IListItem[]>('list', {
+const list = defineModel<IJLItem[]>('list', {
   type: Array,
   default: []
 })
@@ -80,8 +70,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.qj-container {
-  .qj-item {
+.jl-container {
+  .jl-item {
     & > img {
       width: 100%;
       height: 100%;

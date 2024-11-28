@@ -1,9 +1,9 @@
 /*
  * @Author: June
- * @Description: 
+ * @Description:
  * @Date: 2024-09-27 22:15:09
  * @LastEditors: June
- * @LastEditTime: 2024-09-28 00:03:37
+ * @LastEditTime: 2024-11-28 09:41:13
  */
 import { fileURLToPath, URL } from 'node:url'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -40,21 +40,21 @@ export default defineConfig({
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true,
-      },
+        drop_debugger: true
+      }
     },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'Vue3JustifiedLayout',
-      fileName: (format) => `Vue3JustifiedLayout.${format}.js`,
+      fileName: (format) => `Vue3JustifiedLayout.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: {
-          vue: 'Vue',
-        },
-      },
-    },
-  },
+          vue: 'Vue'
+        }
+      }
+    }
+  }
 })
